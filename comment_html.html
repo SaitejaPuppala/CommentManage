@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Comment page</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="id01" style="text-align: center;" class="container">
+	<h1>COMMENT PAGE</h1>
+	<br>
+	<input id="id03" class="form-control" type="text" name="name" placeholder="Enter your name" style="width: 50%;display: table;margin: auto;">
+	<br>
+	<textarea class="form-control" style="width: 50%;display: table;margin: auto;" rows="5" id="id02" placeholder="Enter your comment here.."></textarea>
+	<br>
+	<div class="dropdown">
+	 <button class="btn btn-default" onclick="func()">ADD</button>
+	 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">SORT BY<i class="caret"></i></button>
+		<ul class="dropdown-menu">
+			<li><a href="#" class="dropdown-item" onclick="func1()">Names in Asc order</a></li>
+			<li><a href="#" class="dropdown-item" onclick="func2()">Names in Desc order</a></li>
+			<li><a href="#" class="dropdown-item" onclick="func3()">Time in Asc order</a></li>
+			<li><a href="#" class="dropdown-item" onclick="func4()">Time in Desc order</a></li>
+		</ul>
+	</div>
+	<hr>
+    </div>
+    <div id="pid">
+    </div>
+	<script src ="comments.js">
+	</script>
+</body>
+</html>

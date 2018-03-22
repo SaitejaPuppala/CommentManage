@@ -7,7 +7,8 @@
 		var i=1,j=1;
 		var delct=0;
 		var m=document.getElementById("pid");
-		function func(){
+		function func(e){
+			e.preventDefault();
 			if(document.getElementById('id02').value!=""&&document.getElementById('id03').value!="")
 			{
 			c++;
@@ -43,18 +44,22 @@
             var today = [dd,mm,yyyy].join('-')+' , '+[hr,mn,sec].join(':')+'&nbsp&nbsp';
 			var x=document.createElement("em");
 			x.setAttribute("id",c);
-			x.innerHTML="&nbsp&nbsp<strong>"+document.getElementById('id03').value.toUpperCase()+": </strong>\
-			 <em id='ed'>"+document.getElementById('id02').value+"</em><strong style='float:right;color:green;'>"+today+"</strong><br>";
+			var intex1=document.getElementById('id03').value;
+			var intex2=document.getElementById('id02').value;
+			x.innerHTML="&nbsp&nbsp<strong id='g'> </strong>\
+			 <em id='ed'></em><strong style='float:right;color:green;'>"+today+"</strong><br>";
 			document.getElementById('id02').value="";
 			document.getElementById('id03').value="";
 			x.innerHTML+='<div style="text-align:center;">\
 			<input id="i" style="display:none;" class="form-control" type="text" placeholder="Enter new comment..">\
-			<button class="btn btn-default" style="margin:10px;" onclick="editfunc('+c+')">EDIT</button><button class="btn btn-default" style="margin:10px;" onclick="delfunc('+c+')">DELETE</button></div><hr>'
+			<button class="btn btn-default" style="margin:10px;" onclick="editfunc('+c+',event)">EDIT</button><button class="btn btn-default" style="margin:10px;" onclick="delfunc('+c+',event)">DELETE</button></div><hr>'
 			if(c==1)
 			m.appendChild(x);
 		    else
 		    m.insertBefore(x,m.childNodes[2]);
-		    //console.log(m.childNodes);
+		    document.getElementById("g").innerText=intex1+" : ";
+			document.getElementById("ed").innerText=intex2;
+		    console.log(m.childNodes);
 			if((c-delct)>5)
 			 {
 			 	j=c-delct-5;
@@ -78,7 +83,7 @@
 				var s=document.createElement("button");
 				s.setAttribute("class","btn btn-default");
 				s.setAttribute("id","buttonid");
-				s.setAttribute("onclick","funcbut()");
+				s.setAttribute("onclick","funcbut(event)");
 				s.setAttribute("style","display: table;margin: auto;");
 				s.innerHTML="MORE";
 				m.appendChild(s);
@@ -92,8 +97,9 @@
 		    }
 		    p=c;
 		}
-		function funcbut()
+		function funcbut(e)
 		{
+			e.preventDefault();
 			j=5;
 			i=p-5;
 			while(j>0&&i>=1)
@@ -122,33 +128,37 @@
 			// }
 			p=i;
 		}
-		function delfunc(ci)
+		function delfunc(ci,event)
 		{
+			event.preventDefault();
 			var ei=document.getElementById(ci);
 			ei.parentNode.removeChild(ei);
 			delct++;
 		}
-		function editfunc(ci)
+		function editfunc(ci,event)
 		{
+			event.preventDefault();
 			var ei=document.getElementById(ci);
 			ei.childNodes[6].childNodes[1].setAttribute("style","width: 50%;display: table;margin: auto;");//check req
 			//console.log(ei.childNodes);
 			ei.childNodes[6].childNodes[1].value=ei.childNodes[3].innerHTML;
 			ei.childNodes[6].childNodes[3].innerHTML="UPDATE";
-			ei.childNodes[6].childNodes[3].setAttribute("onclick","updfunc("+ci+")");
+			ei.childNodes[6].childNodes[3].setAttribute("onclick","updfunc("+ci+",event)");
 		}
-		function updfunc(ci)
+		function updfunc(ci,event)
 		{
+			event.preventDefault();
 			var ei=document.getElementById(ci);
 			if(ei.childNodes[6].childNodes[1].value!="")
 			ei.childNodes[3].innerHTML=ei.childNodes[6].childNodes[1].value;
 			ei.childNodes[6].childNodes[1].value="";
 			ei.childNodes[6].childNodes[1].setAttribute("style","display: none;");
 			ei.childNodes[6].childNodes[3].innerHTML="EDIT";
-			ei.childNodes[6].childNodes[3].setAttribute("onclick","editfunc("+ci+")");
+			ei.childNodes[6].childNodes[3].setAttribute("onclick","editfunc("+ci+",event)");
 		}
-		function func1()
+		function func1(e)
 		{
+			e.preventDefault();
 			for(i=1;i<=c;i++)
 				for(j=i+1;j<=c;j++)
 				{
@@ -189,8 +199,9 @@
 					}
 				}
 		}
-		function func2()
+		function func2(e)
 		{
+			e.preventDefault();
 			for(i=1;i<=c;i++)
 				for(j=i+1;j<=c;j++)
 				{
@@ -231,8 +242,9 @@
 					}
 				}
 		}
-		function func3()
+		function func3(e)
 		{
+			e.preventDefault();
 			for(i=1;i<=c;i++)
 				for(j=i+1;j<=c;j++)
 				{
@@ -273,8 +285,9 @@
 					}
 				}
 		}
-		function func4()
+		function func4(e)
 		{
+			e.preventDefault();
 		 	for(i=1;i<=c;i++)
 				for(j=i+1;j<=c;j++)
 				{

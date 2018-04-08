@@ -57,7 +57,7 @@
 			m.appendChild(x);
 		    else
 		    m.insertBefore(x,m.childNodes[2]);
-		    document.getElementById("g").innerText=intex1+" : ";
+		    document.getElementById("g").innerText=intex1.toUpperCase()+" : ";
 			document.getElementById("ed").innerText=intex2;
 		    console.log(m.childNodes);
 			if((c-delct)>5)
@@ -150,7 +150,7 @@
 			event.preventDefault();
 			var ei=document.getElementById(ci);
 			if(ei.childNodes[6].childNodes[1].value!="")
-			ei.childNodes[3].innerHTML=ei.childNodes[6].childNodes[1].value;
+			ei.childNodes[3].innerText=ei.childNodes[6].childNodes[1].value;
 			ei.childNodes[6].childNodes[1].value="";
 			ei.childNodes[6].childNodes[1].setAttribute("style","display: none;");
 			ei.childNodes[6].childNodes[3].innerHTML="EDIT";

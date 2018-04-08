@@ -141,7 +141,7 @@
 			var ei=document.getElementById(ci);
 			ei.childNodes[6].childNodes[1].setAttribute("style","width: 50%;display: table;margin: auto;");//check req
 			//console.log(ei.childNodes);
-			ei.childNodes[6].childNodes[1].value=ei.childNodes[3].innerHTML;
+			ei.childNodes[6].childNodes[1].value=ei.childNodes[3].innerText;
 			ei.childNodes[6].childNodes[3].innerHTML="UPDATE";
 			ei.childNodes[6].childNodes[3].setAttribute("onclick","updfunc("+ci+",event)");
 		}
